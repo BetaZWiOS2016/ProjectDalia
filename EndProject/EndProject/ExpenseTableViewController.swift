@@ -43,8 +43,23 @@ class ExpenseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //load the hardcoded data
-        loadSampleExpense()
+        // allos the use of the editbutton provided by the navigationcontrolller
+        navigationItem.leftBarButtonItem = editButtonItem()
+        
+        /*//load the hardcoded data
+        loadSampleExpense() */
+        
+        if let savedExpenses = loadExpenses() {
+            
+            expenses += savedExpenses
+        
+        
+        } else {
+            
+            //load the hardcoded data
+            loadSampleExpense()
+        
+        }
 
 
     }
@@ -93,17 +108,23 @@ class ExpenseTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            
+            expenses.removeAtIndex(indexPath.row)
+            
+            saveExpenses()
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -120,26 +141,93 @@ class ExpenseTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowDetail"{
+            
+            let ExpenseDetailViewController = segue.destinationViewController as! ViewController
+            
+            if let selectedExpenseCell = sender as? ExpenseViewTableViewCell {
+                
+                let indexPath = tableView.indexPathForCell(selectedExpenseCell)!
+                let selectedExpense = expenses[indexPath.row]
+                ExpenseDetailViewController.expense = selectedExpense
+            
+            }
+        
+        }
+        else if segue.identifier == "AddItem" {
+            
+            //log some stuff for check
+            print("Adding new meal")
+            
+        
+        }
+        
     }
-    */
+    
     
     @IBAction func unwindToExpenseList(sender: UIStoryboardSegue){
         
-        if let sourceViewController = sender.sourceViewController as? ViewController, expense = sourceViewController.expense {
+        // old code
+        
+       /* if let sourceViewController = sender.sourceViewController as? ViewController, expense = sourceViewController.expense {
             // add a new expense
             let newIndexPath = NSIndexPath(forRow: expenses.count, inSection: 0)
             expenses.append(expense)
             tableView.insertRowsAtIndexPaths([newIndexPath],withRowAnimation: .Bottom)
             
+        }*/
+        
+        if let sourceViewController = sender.sourceViewController as? ViewController, expense = sourceViewController.expense {
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                
+                //update existing expense
+                expenses[selectedIndexPath.row] = expense
+                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+  
+            
+            }
+            else {
+                
+                //adding a new expense
+                let newIndexPath = NSIndexPath(forItem: expenses.count, inSection: 0)
+                expenses.append(expense)
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            
+            }
+            saveExpenses()
+        
+        
         }
         
+    }
+    
+    //MARK: NSCoding
+    
+    func saveExpenses(){
+        
+        let isSuccesfullSave = NSKeyedArchiver.archiveRootObject(expenses, toFile: Expense.ArchiveURL!.path!)
+        
+        if !isSuccesfullSave {
+            
+            print("Failed to save expenses......")
+        
+        }
+       
+    }
+    
+    func loadExpenses() -> [Expense]? {
+        
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Expense.ArchiveURL!.path!) as? [Expense]
+    
     }
     
     

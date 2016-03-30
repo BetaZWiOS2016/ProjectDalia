@@ -39,6 +39,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         //Handle the textfield's user input through delegate callbacks
         txtTitleField.delegate = self
         
+        if let expense = expense {
+            
+            navigationItem.title = expense.title
+            txtTitleField.text = expense.title
+            photoImageView.image = expense.photo
+            ratingControl.rating =  expense.rating
+            txtDateField.text = expense.date
+            txtAmountField.text = String(expense.amount)
+            
+        
+        
+        }
+        
         //enables the saveButton if the textfield has a name
         checkValidExpenseName()
         
@@ -120,9 +133,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             //for the tableviewcontroller and unwind the segue
             expense = Expense(title: title, amount: amount,rating: rating, photo: photo, date: date)
         
+            
         }
         
     }
+    
     
     
     
@@ -153,9 +168,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
     }
     
+    //add action to cancel button
+    
     @IBAction func cancel(sender: UIBarItem){
         
+        //depending the type of presentation, modal or a push, this view controller must be dismissed 
+        
+        //each one has a different way
+        
+        let isPresentingInAddExpenseMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddExpenseMode {
+        
         dismissViewControllerAnimated(true, completion: nil)
+        }
+        else {
+            navigationController!.popViewControllerAnimated(true)
+        }
     
     }
     

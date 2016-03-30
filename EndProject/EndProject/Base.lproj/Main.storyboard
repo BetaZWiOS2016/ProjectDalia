@@ -155,6 +155,7 @@
                                     <outlet property="ratingControl" destination="67s-Fi-mT7" id="uZG-ES-2QG"/>
                                     <outlet property="txtDateLabel" destination="8RP-Yx-atA" id="S7j-0U-wZn"/>
                                     <outlet property="txtTitleLabel" destination="8il-d4-beV" id="UjL-M1-nym"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="ZYB-ed-hYU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -209,11 +210,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUI-mg-YvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2559" y="333"/>
+            <point key="canvasLocation" x="2539" y="1"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="224" height="175"/>
         <image name="filledGame" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZYB-ed-hYU"/>
+    </inferredMetricsTieBreakers>
 </document>
