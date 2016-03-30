@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F92DDE111CAACE600069A337 /* ExpenseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DDE101CAACE600069A337 /* ExpenseTableViewController.swift */; };
+		F9E703E71CAA66F2006A4521 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E703E61CAA66F2006A4521 /* Expense.swift */; };
+		F9E703E91CAA6C2D006A4521 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E703E81CAA6C2D006A4521 /* Category.swift */; };
+		F9E703EC1CAA8B1D006A4521 /* RatingControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E703EB1CAA8B1D006A4521 /* RatingControll.swift */; };
+		F9E703EE1CAAB901006A4521 /* ExpenseViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E703ED1CAAB901006A4521 /* ExpenseViewTableViewCell.swift */; };
 		F9EA23C11C9C557E004A7B6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA23C01C9C557E004A7B6B /* AppDelegate.swift */; };
 		F9EA23C31C9C557E004A7B6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA23C21C9C557E004A7B6B /* ViewController.swift */; };
 		F9EA23C61C9C557E004A7B6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9EA23C41C9C557E004A7B6B /* Main.storyboard */; };
@@ -34,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F92DDE101CAACE600069A337 /* ExpenseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewController.swift; sourceTree = "<group>"; };
+		F9E703E61CAA66F2006A4521 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		F9E703E81CAA6C2D006A4521 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		F9E703EB1CAA8B1D006A4521 /* RatingControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControll.swift; sourceTree = "<group>"; };
+		F9E703ED1CAAB901006A4521 /* ExpenseViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewTableViewCell.swift; sourceTree = "<group>"; };
 		F9EA23BD1C9C557E004A7B6B /* EndProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EndProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9EA23C01C9C557E004A7B6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9EA23C21C9C557E004A7B6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +84,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F9E703E51CAA66DA006A4521 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				F9E703E61CAA66F2006A4521 /* Expense.swift */,
+				F9E703E81CAA6C2D006A4521 /* Category.swift */,
+			);
+			name = classes;
+			sourceTree = "<group>";
+		};
+		F9E703EA1CAA8AD9006A4521 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F9E703EB1CAA8B1D006A4521 /* RatingControll.swift */,
+				F9E703ED1CAAB901006A4521 /* ExpenseViewTableViewCell.swift */,
+				F92DDE101CAACE600069A337 /* ExpenseTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		F9EA23B41C9C557E004A7B6B = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +126,8 @@
 		F9EA23BF1C9C557E004A7B6B /* EndProject */ = {
 			isa = PBXGroup;
 			children = (
+				F9E703EA1CAA8AD9006A4521 /* Controllers */,
+				F9E703E51CAA66DA006A4521 /* classes */,
 				F9EA23C01C9C557E004A7B6B /* AppDelegate.swift */,
 				F9EA23C21C9C557E004A7B6B /* ViewController.swift */,
 				F9EA23C41C9C557E004A7B6B /* Main.storyboard */,
@@ -256,8 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F92DDE111CAACE600069A337 /* ExpenseTableViewController.swift in Sources */,
+				F9E703E71CAA66F2006A4521 /* Expense.swift in Sources */,
 				F9EA23C31C9C557E004A7B6B /* ViewController.swift in Sources */,
+				F9E703EC1CAA8B1D006A4521 /* RatingControll.swift in Sources */,
+				F9E703EE1CAAB901006A4521 /* ExpenseViewTableViewCell.swift in Sources */,
 				F9EA23C11C9C557E004A7B6B /* AppDelegate.swift in Sources */,
+				F9E703E91CAA6C2D006A4521 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +520,7 @@
 				F9EA23E71C9C557E004A7B6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F9EA23E81C9C557E004A7B6B /* Build configuration list for PBXNativeTarget "EndProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +529,7 @@
 				F9EA23EA1C9C557E004A7B6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F9EA23EB1C9C557E004A7B6B /* Build configuration list for PBXNativeTarget "EndProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +538,7 @@
 				F9EA23ED1C9C557E004A7B6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
