@@ -20,8 +20,7 @@ class ExpenseViewTableViewCell: UITableViewCell {
     
     @IBOutlet weak var txtDateLabel: UILabel!
     
-    @IBOutlet weak var txtAmountLabel: UILabel!
-    
+     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

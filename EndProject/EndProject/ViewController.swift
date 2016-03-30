@@ -14,17 +14,34 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     @IBOutlet weak var txtTitleField: UITextField!
 
+    @IBOutlet weak var txtDateField: UITextField!
+    
+    @IBOutlet weak var txtAmountField: UITextField!
+    
     @IBOutlet weak var lblNameLabel: UILabel!
     
     @IBOutlet weak var photoImageView: UIImageView!
 
     @IBOutlet weak var ratingControl: RatingControll!
     
+    @IBOutlet weak var btnCancelButton: UIBarButtonItem!
+    
+    @IBOutlet weak var btnSaveButton: UIBarButtonItem!
+    
+    
+    
+    //the value passed from the tableviewController or added as a new expense
+    var expense: Expense?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Handle the textfield's user input through delegate callbacks
         txtTitleField.delegate = self
+        
+        //enables the saveButton if the textfield has a name
+        checkValidExpenseName()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +58,30 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func textFieldDidBeginEditing(textField: UITextField) {
         lblNameLabel.text = textField.text
+        btnSaveButton.enabled = false
     }
+    
+    func checkValidExpenseName(){
+        //Disable save button if there is nothing in the textfiels
+        let title = txtTitleField.text ?? ""
+        let date = txtDateField.text ?? ""
+        let amount =  txtAmountField.text ?? ""
+        
+        btnSaveButton.enabled = !title.isEmpty
+        btnSaveButton.enabled = !date.isEmpty
+        btnSaveButton.enabled = !amount.isEmpty
+        
+
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkValidExpenseName()
+        navigationItem.title = textField.text
+    }
+  
+    
+    
+    
     
     //MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -61,6 +101,30 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         //Dismiss the Picker
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    
+    
+    //MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //=== means to check if the object refered savebutton
+        if btnSaveButton === sender {
+            
+            let title = txtTitleField.text ?? " "
+            let date = txtDateField.text ?? " "
+            let amount = Double(txtAmountField.text!) ?? 0.0
+            let photo = photoImageView.image
+            let rating = ratingControl.rating
+            
+            //for the tableviewcontroller and unwind the segue
+            expense = Expense(title: title, amount: amount,rating: rating, photo: photo, date: date)
+        
+        }
+        
+    }
+    
+    
     
     //MARK: Actions
     @IBOutlet var selectImageList: UITapGestureRecognizer!
@@ -88,6 +152,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         
     }
+    
+    @IBAction func cancel(sender: UIBarItem){
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    
+    }
+    
+    
+
     
     
 

@@ -73,9 +73,11 @@ class ExpenseTableViewController: UITableViewController {
 
         // gets the correct expense for the data source layout
         let expense = expenses[indexPath.row]
-        cell.txtTitleLabel.text = expense.title
+        
+        var tmp:String;
+        tmp = "\(expense.amount)"
+        cell.txtTitleLabel.text = expense.title + " " + tmp
         cell.txtDateLabel.text = expense.date
-       // cell.txtAmountLabel.text = expense.amount
         cell.imPhotoImage.image = expense.photo
         cell.ratingControl.rating = expense.rating
 
@@ -127,5 +129,19 @@ class ExpenseTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToExpenseList(sender: UIStoryboardSegue){
+        
+        if let sourceViewController = sender.sourceViewController as? ViewController, expense = sourceViewController.expense {
+            // add a new expense
+            let newIndexPath = NSIndexPath(forRow: expenses.count, inSection: 0)
+            expenses.append(expense)
+            tableView.insertRowsAtIndexPaths([newIndexPath],withRowAnimation: .Bottom)
+            
+        }
+        
+    }
+    
+    
 
 }
