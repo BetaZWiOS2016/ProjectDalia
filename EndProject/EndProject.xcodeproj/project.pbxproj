@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F92DDE111CAACE600069A337 /* ExpenseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DDE101CAACE600069A337 /* ExpenseTableViewController.swift */; };
+		F9D444A51CAD235200E18F7D /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D444A41CAD235200E18F7D /* FoodTableViewController.swift */; };
+		F9D444A71CAD30E100E18F7D /* ElecTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D444A61CAD30E100E18F7D /* ElecTableViewController.swift */; };
+		F9D444A91CAD30F800E18F7D /* RepairTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D444A81CAD30F800E18F7D /* RepairTableViewController.swift */; };
 		F9E703E71CAA66F2006A4521 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E703E61CAA66F2006A4521 /* Expense.swift */; };
 		F9E703E91CAA6C2D006A4521 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E703E81CAA6C2D006A4521 /* Category.swift */; };
 		F9E703EC1CAA8B1D006A4521 /* RatingControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E703EB1CAA8B1D006A4521 /* RatingControll.swift */; };
@@ -40,6 +43,9 @@
 
 /* Begin PBXFileReference section */
 		F92DDE101CAACE600069A337 /* ExpenseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewController.swift; sourceTree = "<group>"; };
+		F9D444A41CAD235200E18F7D /* FoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
+		F9D444A61CAD30E100E18F7D /* ElecTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElecTableViewController.swift; sourceTree = "<group>"; };
+		F9D444A81CAD30F800E18F7D /* RepairTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepairTableViewController.swift; sourceTree = "<group>"; };
 		F9E703E61CAA66F2006A4521 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		F9E703E81CAA6C2D006A4521 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F9E703EB1CAA8B1D006A4521 /* RatingControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControll.swift; sourceTree = "<group>"; };
@@ -99,6 +105,9 @@
 				F9E703EB1CAA8B1D006A4521 /* RatingControll.swift */,
 				F9E703ED1CAAB901006A4521 /* ExpenseViewTableViewCell.swift */,
 				F92DDE101CAACE600069A337 /* ExpenseTableViewController.swift */,
+				F9D444A41CAD235200E18F7D /* FoodTableViewController.swift */,
+				F9D444A61CAD30E100E18F7D /* ElecTableViewController.swift */,
+				F9D444A81CAD30F800E18F7D /* RepairTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -289,11 +298,14 @@
 			files = (
 				F92DDE111CAACE600069A337 /* ExpenseTableViewController.swift in Sources */,
 				F9E703E71CAA66F2006A4521 /* Expense.swift in Sources */,
+				F9D444A91CAD30F800E18F7D /* RepairTableViewController.swift in Sources */,
 				F9EA23C31C9C557E004A7B6B /* ViewController.swift in Sources */,
 				F9E703EC1CAA8B1D006A4521 /* RatingControll.swift in Sources */,
 				F9E703EE1CAAB901006A4521 /* ExpenseViewTableViewCell.swift in Sources */,
 				F9EA23C11C9C557E004A7B6B /* AppDelegate.swift in Sources */,
 				F9E703E91CAA6C2D006A4521 /* Category.swift in Sources */,
+				F9D444A71CAD30E100E18F7D /* ElecTableViewController.swift in Sources */,
+				F9D444A51CAD235200E18F7D /* FoodTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

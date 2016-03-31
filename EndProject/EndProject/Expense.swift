@@ -23,6 +23,15 @@ class Expense : NSObject, NSCoding {
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first
     static let ArchiveURL = DocumentsDirectory?.URLByAppendingPathComponent("expenses")
     
+    static let DocumentsDirectoryFood = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first
+    static let ArchiveURLFood = DocumentsDirectoryFood?.URLByAppendingPathComponent("foodExpenses")
+    
+    static let DocumentsDirectoryRepair = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first
+    static let ArchiveURLRepair = DocumentsDirectoryRepair?.URLByAppendingPathComponent("repairExpenses")
+    
+    static let DocumentsDirectoryElec = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first
+    static let ArchiveURLElec = DocumentsDirectoryElec?.URLByAppendingPathComponent("elecExpenses")
+    
     //MARK: Types
     //string value
     struct PropertyKey {

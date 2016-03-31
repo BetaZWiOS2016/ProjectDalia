@@ -35,13 +35,13 @@ class RatingControll: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        let filledImage = UIImage(named: "filledGame")
-        let emptyImage = UIImage(named: "emptyGame")
+        let filledImage = UIImage(named: "filledStar")
+        let emptyImage = UIImage(named: "emptyStar")
         
         
         for _ in 0..<5{
             
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 32))
             button.setImage(emptyImage, forState: .Normal)
             button.setImage(filledImage, forState: .Selected)
             button.setImage(filledImage, forState: [.Highlighted, .Selected])
@@ -70,7 +70,7 @@ class RatingControll: UIView {
         
         //offset each button's origin by the length of the button + spacing
         for(index, button) in ratingButtons.enumerate(){
-            buttonFrame.origin.x=CGFloat(index*(44+spacing))
+            buttonFrame.origin.x=CGFloat(index*(32+spacing))
             button.frame = buttonFrame
         
         }
