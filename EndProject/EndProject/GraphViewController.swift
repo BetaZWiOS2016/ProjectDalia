@@ -14,11 +14,18 @@ class GraphViewController: UIViewController, ChartViewDelegate {
     //MARK: Properties
     
     @IBOutlet weak var lineChartView: LineChartView!
-    let months = ["jan", "feb", "mar", "apr", "may", "june", "august","sept","oct","nov","dec"]
-    let dollars1 = [1452.0,2353,5431,1442,5451,6486,1173,5678,9234,1345,9411,2212]
+    let category = ["food","electricty", "misc", "repair"]
+    var amount = [Double]()
+    
+
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        amount = loadExpenses()
         
         self.lineChartView.delegate = self
         self.lineChartView.descriptionText = "Tap node for details"
@@ -30,20 +37,20 @@ class GraphViewController: UIViewController, ChartViewDelegate {
         
 
         
-        setChartData(months)
+        setChartData(category)
         
         
 
     }
     
-    func setChartData(months: [String]) {
+    func setChartData(category: [String]) {
         
         // creating an array of data entries
         
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
-        for var i = 0; i < months.count; i++ {
+        for var i = 0; i < category.count; i++ {
             
-            yVals1.append(ChartDataEntry(value: dollars1[i], xIndex: i))
+            yVals1.append(ChartDataEntry(value: amount[i], xIndex: i))
         }
         
         //create a data set with array
@@ -64,7 +71,7 @@ class GraphViewController: UIViewController, ChartViewDelegate {
         dataSets.append(set1)
         
         // pass the data x-axis label value along with  dataSet
-        let data: LineChartData = LineChartData(xVals: months, dataSets: dataSets)
+        let data: LineChartData = LineChartData(xVals: category, dataSets: dataSets)
         data.setValueTextColor(UIColor.whiteColor())
         
         self.lineChartView.data = data
@@ -87,5 +94,47 @@ class GraphViewController: UIViewController, ChartViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func loadExpenses() -> [Double] {
+        
+        
+        let food = NSKeyedUnarchiver.unarchiveObjectWithFile(Expense.ArchiveURLFood!.path!) as? [Expense]
+        
+        let electricity = NSKeyedUnarchiver.unarchiveObjectWithFile(Expense.ArchiveURLElec!.path!) as? [Expense]
+        
+        let repair = NSKeyedUnarchiver.unarchiveObjectWithFile(Expense.ArchiveURLRepair!.path!) as? [Expense]
+        
+        
+        let misc = NSKeyedUnarchiver.unarchiveObjectWithFile(Expense.ArchiveURL!.path!) as? [Expense]
+        
+        var foodD = 0.0
+        var elecD = 256.0
+        var repairD = 123.0
+        var miscD = 56.0
+        
+        for var i = 0; i < food!.count; i++ {
+            foodD += food![i].amount
+            
+        }
+        
+       /*for var i = 0; i < electricity!.count; i++ {
+            elecD += electricity![i].amount
+            
+        }*/
+       /* for var i = 0; i < repair!.count; i++ {
+            repairD += repair![i].amount
+            
+        }*/
+        
+        /*for var i = 0; i < misc!.count; i++ {
+            miscD += misc![i].amount
+            
+        }*/
+        
+        let test = [foodD, elecD, miscD, repairD]
+        
+        return test
+    
+    }
 
 }

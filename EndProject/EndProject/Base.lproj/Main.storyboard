@@ -852,16 +852,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-vw-C4A" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="71" y="87" width="459" height="425"/>
+                                <rect key="frame" x="35" y="89" width="530" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.91197431848404253" green="0.91197431848404253" blue="0.91197431848404253" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="vxu-vw-C4A" firstAttribute="leading" secondItem="LXE-6m-2x0" secondAttribute="leadingMargin" constant="51" id="2oM-TT-CJZ"/>
+                            <constraint firstItem="vxu-vw-C4A" firstAttribute="leading" secondItem="LXE-6m-2x0" secondAttribute="leadingMargin" constant="15" id="2oM-TT-CJZ"/>
                             <constraint firstItem="vxu-vw-C4A" firstAttribute="centerY" secondItem="LXE-6m-2x0" secondAttribute="centerY" id="58U-CB-7cu"/>
-                            <constraint firstItem="vxu-vw-C4A" firstAttribute="top" secondItem="CsO-nl-dtZ" secondAttribute="bottom" constant="23" id="GJ5-T2-vWP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vxu-vw-C4A" secondAttribute="trailing" constant="50" id="nfu-4Z-0Vj"/>
+                            <constraint firstItem="vxu-vw-C4A" firstAttribute="top" secondItem="CsO-nl-dtZ" secondAttribute="bottom" constant="25" id="GJ5-T2-vWP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vxu-vw-C4A" secondAttribute="trailing" constant="15" id="nfu-4Z-0Vj"/>
                         </constraints>
                     </view>
                     <connections>
