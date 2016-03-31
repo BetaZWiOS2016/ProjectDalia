@@ -298,7 +298,14 @@
                             <constraint firstItem="uFt-M3-0Gy" firstAttribute="top" secondItem="yXO-et-Kas" secondAttribute="bottom" constant="16" id="zFW-62-LEw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xlL-bS-3Hn"/>
+                    <navigationItem key="navigationItem" id="xlL-bS-3Hn">
+                        <barButtonItem key="rightBarButtonItem" image="icon5" width="12" id="hP8-k7-r4F">
+                            <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <connections>
+                                <segue destination="fvH-xF-RUc" kind="show" id="QU4-i2-tMH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNd-hB-T7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -832,6 +839,39 @@
             </objects>
             <point key="canvasLocation" x="1016" y="-619"/>
         </scene>
+        <!--Graph View Controller-->
+        <scene sceneID="4Y0-U1-enl">
+            <objects>
+                <viewController id="fvH-xF-RUc" customClass="GraphViewController" customModule="EndProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CsO-nl-dtZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="z3W-DU-GNg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LXE-6m-2x0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-vw-C4A" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="71" y="87" width="459" height="425"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91197431848404253" green="0.91197431848404253" blue="0.91197431848404253" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="vxu-vw-C4A" firstAttribute="leading" secondItem="LXE-6m-2x0" secondAttribute="leadingMargin" constant="51" id="2oM-TT-CJZ"/>
+                            <constraint firstItem="vxu-vw-C4A" firstAttribute="centerY" secondItem="LXE-6m-2x0" secondAttribute="centerY" id="58U-CB-7cu"/>
+                            <constraint firstItem="vxu-vw-C4A" firstAttribute="top" secondItem="CsO-nl-dtZ" secondAttribute="bottom" constant="23" id="GJ5-T2-vWP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vxu-vw-C4A" secondAttribute="trailing" constant="50" id="nfu-4Z-0Vj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lineChartView" destination="vxu-vw-C4A" id="9bI-Mo-Yaw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJg-CX-Hxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240" y="-769"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="aVk-wa-qNh">
             <objects>
@@ -1012,6 +1052,7 @@
         <image name="icon2" width="150" height="150"/>
         <image name="icon3" width="521" height="521"/>
         <image name="icon4" width="150" height="150"/>
+        <image name="icon5" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MIG-Wq-AxG"/>
